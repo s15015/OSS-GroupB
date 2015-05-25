@@ -88,14 +88,14 @@ long elEvent(void)
 // 引数 x, y:調べるぷよ座標 pno:ぷよ番号 cno:結合番号
 int CheckCombine(int x, int y, int pno, int cno)
 {
-	if (field[y][x] != pno || cmb[y][x] != 0) return 0;　　　　　//最初の空（?）状態
-	int ret = 1;
-	cmb[y][x] = cno;
-	if (y > 0) ret += CheckCombine(x, y - 1, pno, cno);		// 上
-	ret += CheckCombine(x + 1, y, pno, cno);		         // 右
-	ret += CheckCombine(x, y + 1, pno, cno);			// 下
-	ret += CheckCombine(x - 1, y, pno, cno);			// 左
-	return ret;
+if (field[y][x] != pno || cmb[y][x] != 0) return 0;　　　　　//最初の空（?）状態
+int ret = 1;	
+cmb[y][x] = cno;
+if (y > 0) ret += CheckCombine(x, y - 1, pno, cno);		// 上
+ret += CheckCombine(x + 1, y, pno, cno);		         // 右
+ret += CheckCombine(x, y + 1, pno, cno);			// 下
+ret += CheckCombine(x - 1, y, pno, cno);			// 左
+return ret;
 }
 
 void MainScreen(void)
